@@ -1,4 +1,6 @@
 #include <iostream>
+#include <windows.h>
+
 class HangMan{
 private:
     bool is_scaffold;
@@ -27,7 +29,7 @@ public:
     void create_right_hand();
     void create_left_leg();
     void create_right_leg();
-    void start();
+    int start();
 };
 
 void HangMan::create_scaffold(){
@@ -61,7 +63,7 @@ void HangMan::create_right_leg(){
 }
 
 
-void HangMan::start(){
+int HangMan::start(){
     int choice_theme;
     std::string animal_list[] = {"dog", "cat" };
     std::string current_word;
@@ -72,16 +74,103 @@ void HangMan::start(){
 
     switch (choice_theme){
     case 1:
-        current_word = animal_list[0];// 랜덤
+        current_word = animal_list[0];// ?�덤
+        
     }
-    
-    std::cout<<current_word;
 
+    int current_length = current_word.size();
+    std::string view;
+
+    for(int i = 0; i < current_length; i++){
+       view.insert(i," _ "); 
+    }
+
+    char alphabet;
+    int changePoint = 0;
+    int create = 0;
+        
+    while(1){
+        std::cout<<view<<std::endl;
+        
+        Sleep(700);
+        //alphbet input
+        // char alphabet;
+        std::cout<<"Put your gues with Capital letter: ";
+        std::cin>>alphabet;
+
+
+        //std::cout<<current_word<<std::endl;
+        //.at -> certain region char access.
+        // int changePoint = 0;
+        for(int i = 0; i < current_length ;i++){
+        char compare = current_word.at(i); 
+            if(compare == alphabet){
+                    changePoint ++;
+                    std::string stralpha;
+                    stralpha = alphabet;
+                    view.erase(2*i+3,1);
+                    view.insert(2*i+3,stralpha);
+            }
+        }
+        // int create = 0;
+        if(changePoint == 0){
+            create ++;
+            switch (create){
+            case 1:
+                create_scaffold();
+                break;
+            case 2:
+                create_head();
+                break;
+            case 3:
+                create_body();
+                break;
+            case 4:
+                create_left_hand();
+                break;
+            case 5:
+                create_right_hand();
+                break;
+            case 6:
+                create_left_leg();
+                break;
+            case 7:
+                create_right_leg();
+                Sleep(2000);
+                std::cout<<"game end"<<std::endl;
+                return 0;
+            } 
+        }
+        changePoint = 0;
+        int trans = 0;
+        for(int i = 0; i < current_length ;i++){
+            char compare = view.at(2*i+3); 
+            if(compare == '_'){
+                    trans++;
+                    break;
+
+            }
+        }
+        if(trans ==  0){
+            std::cout<<view<<std::endl;
+            Sleep(2000);
+            std::cout<<"you win"<<std::endl;
+            return 0;
+        }
+
+    }   
 }
 
 int main(){
-    HangMan hm();
+    HangMan hm = HangMan();
     hm.start();
-    
+    Sleep(3000);
+    //.insert -> string insert in located region
+    //.size, . length -> size of string
+    //.at -> certain region char access.
+    //.c_str -> string change to char*
+
+
+
     return 0;
 }
