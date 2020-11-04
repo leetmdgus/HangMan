@@ -1,5 +1,7 @@
 #include <iostream>
 #include <windows.h>
+#include <cstdlib>
+#include <time.h>
 
 class HangMan{
 private:
@@ -65,19 +67,24 @@ void HangMan::create_right_leg(){
 
 int HangMan::start(){
     int choice_theme;
-    std::string animal_list[] = {"as","fox","bee",",dog", "cat" };
+    std::string animal_list[] = {"fox",",dog", "cat","leopard","hyena","parrot","owl"
+                                    ,"lion","eagle","hen","cow","ox","chicken","crane","bird"
+                                    ,"tiger","swan","goose","giraffe"};
     std::string current_word;
 
     std::cout<<"Choice Theme: 1. animal 2. etc."<<std::endl;
     std::cout<<"choice: ";
     std::cin>>choice_theme;
-
-    switch (choice_theme){
-    case 1:
-        current_word = animal_list[0];// ??´ý
+	
+    srand((unsigned int)time(NULL));
+	int num = rand()%18;
+	
+	switch (choice_theme){
+	case 1:
+        current_word = animal_list[num];// ??´ý
         
     }
-
+	
     int current_length = current_word.size();
     int z = 0;
 
