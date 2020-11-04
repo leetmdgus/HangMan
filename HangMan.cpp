@@ -65,7 +65,7 @@ void HangMan::create_right_leg(){
 
 int HangMan::start(){
     int choice_theme;
-    std::string animal_list[] = {"dog", "cat" };
+    std::string animal_list[] = {"as","fox","bee",",dog", "cat" };
     std::string current_word;
 
     std::cout<<"Choice Theme: 1. animal 2. etc."<<std::endl;
@@ -74,11 +74,17 @@ int HangMan::start(){
 
     switch (choice_theme){
     case 1:
-        current_word = animal_list[0];// ?œë¤
+        current_word = animal_list[0];// ??´ý
         
     }
 
     int current_length = current_word.size();
+    int z = 0;
+
+    for(int j = 0; j <current_length;j++){
+        z++;
+    }
+
     std::string view;
 
     for(int i = 0; i < current_length; i++){
@@ -108,8 +114,8 @@ int HangMan::start(){
                     changePoint ++;
                     std::string stralpha;
                     stralpha = alphabet;
-                    view.erase(2*i+3,1);
-                    view.insert(2*i+3,stralpha);
+                    view.erase(2*i+z,1);
+                    view.insert(2*i+z,stralpha);
             }
         }
         // int create = 0;
@@ -144,7 +150,7 @@ int HangMan::start(){
         changePoint = 0;
         int trans = 0;
         for(int i = 0; i < current_length ;i++){
-            char compare = view.at(2*i+3); 
+            char compare = view.at(2*i+z); 
             if(compare == '_'){
                     trans++;
                     break;
@@ -174,3 +180,4 @@ int main(){
 
     return 0;
 }
+
