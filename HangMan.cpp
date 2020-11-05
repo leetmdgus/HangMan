@@ -87,9 +87,11 @@ int HangMan::start(){
 	
 	switch (choice_theme){
 	case 1:
-        current_word = animal_list[num];// ?�덤
+        current_word = animal_list[num];
+        break;// ?�덤
     case 2:
         current_word = country_list[num];
+        break;
     }
 	
     int current_length = current_word.size();
@@ -157,7 +159,9 @@ int HangMan::start(){
             case 7:
                 create_right_leg();
                 Sleep(2000);
+                std::cout<<"your word: "<<current_word<<std::endl;
                 std::cout<<"game end"<<std::endl;
+                Sleep(2000);
                 return 0;
             } 
         }
