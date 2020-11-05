@@ -70,19 +70,26 @@ int HangMan::start(){
     std::string animal_list[] = {"fox",",dog", "cat","leopard","hyena","parrot","owl"
                                     ,"lion","eagle","hen","cow","ox","chicken","crane","bird"
                                     ,"tiger","swan","goose","giraffe"};
+    std::string country_list[] = {"RepublicofGhana","Guam", "Nigeria","KingdomoftheNetherlands","Nepal","New Zealand"
+                                    , "Korea","Kingdom of Denmark","Germany","Laos"
+                                    , "Russia", "Mexico","Mongolia","Vietnam"
+                                    , "Brazil", "Belgium", "Saudi Arabia", "SriLanka"
+                                    , "Sweden", "Swiss","Spain","Argentina"
+                                    , "Iceland"};
     std::string current_word;
 
-    std::cout<<"Choice Theme: 1. animal 2. etc."<<std::endl;
+    std::cout<<"Choice Theme: 1. Animal 2. Country 3. etc."<<std::endl;
     std::cout<<"choice: ";
     std::cin>>choice_theme;
 	
     srand((unsigned int)time(NULL));
-	int num = rand()%18;
+	int num = rand()%5;
 	
 	switch (choice_theme){
 	case 1:
-        current_word = animal_list[num];// ??¥˝
-        
+        current_word = animal_list[num];// ?ÔøΩÎç§
+    case 2:
+        current_word = country_list[num];
     }
 	
     int current_length = current_word.size();
@@ -187,4 +194,3 @@ int main(){
 
     return 0;
 }
-
