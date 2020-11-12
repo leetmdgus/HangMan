@@ -70,10 +70,10 @@ int HangMan::start(){
     std::string animal_list[] = {"fox",",dog", "cat","leopard","hyena","parrot","owl"
                                     ,"lion","eagle","hen","cow","ox","chicken","crane","bird"
                                     ,"tiger","swan","goose","giraffe"};
-    std::string country_list[] = {"RepublicofGhana","Guam", "Nigeria","KingdomoftheNetherlands","Nepal","New Zealand"
-                                    , "Korea","Kingdom of Denmark","Germany","Laos"
+    std::string country_list[] = {"Guam", "Nigeria","Nepal","NewZealand"
+                                    , "Korea","Germany","Laos"
                                     , "Russia", "Mexico","Mongolia","Vietnam"
-                                    , "Brazil", "Belgium", "Saudi Arabia", "SriLanka"
+                                    , "Brazil", "Belgium", "SaudiArabia", "SriLanka"
                                     , "Sweden", "Swiss","Spain","Argentina"
                                     , "Iceland"};
     std::string current_word;
